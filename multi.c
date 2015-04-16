@@ -1,3 +1,9 @@
+/* POSIX multithreading */
+/* Simple program using pthread library to  */    
+/* Created by Daniel Miksa */
+/* Copyright (c) 2014 Daniel Miksa. All rights reserved. */
+    
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
