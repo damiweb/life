@@ -1,0 +1,11 @@
+BACKLOG
+_________________
+
+- find bugs and fix,
+- clean-up code - language unification,
+- complete documentation, 
+- save files from editor,
+- edit existing files,
+- game speed settings,
+- game colours,
+- prepare for windows environment,
