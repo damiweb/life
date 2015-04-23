@@ -1,0 +1,16 @@
+CHANGELOG
+_____________________________________________________
+
+Version 0.11 (23 april 2015)
+- file support added,
+- save gamestate feature,
+- multithreading implemented for keyboard capturing,
+- pause/resume feature added,
+_____________________________________________________
+
+Version 0.1 (17 april 2015)
+- simple game implementation,
+- game matrix editor,
+- game matrix random autofill function,
+- function library extracted,
+- simple makefile,
