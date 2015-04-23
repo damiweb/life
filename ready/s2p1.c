@@ -7,37 +7,40 @@
 
 main()
 {
-system("clear");
+	pthread_t mythread; /* new thread variable */
+	system("clear");
 
-/* zapytaj o zmienne */
+	/* zapytaj o zmienne */
 
-array life = create();
+	array life = create();
+	fflush(stdin);
 
-/* DISPLAY EMPTY TABLE - TESTFUNCTION */
+	/* DISPLAY EMPTY TABLE - TESTFUNCTION */
 
-fill(life);
+	fill(life);
 
-/* add alive cells */
+	/* add alive cells */
 
-/*switch, editor etc...*/
+	/*switch, editor etc...*/
 
-system("clear");
+	system("clear");
 
-/* prompt the game table */
+	/* starting second thread for key handling */
 
-game(life);
+	if ( pthread_create( &mythread, NULL, ThreadFunction, NULL) ) {
+		printf("błąd przy tworzeniu wątku\n"); abort();
+	}
 
-usleep(900000);
-usleep(900000);
-usleep(900000);
-
-printf("*********** GAME OVER ***********");
-
-usleep(900000);
-usleep(900000);
-usleep(900000);
-
-system("clear");
+	int gameresult = game(life);
+	printf("You successfully left a game. Press ESC to CONTINUE saving process.\n");
+	if ( pthread_join ( mythread, NULL ) ) {
+	    printf("błąd w kończeniu wątku\n");
+	}
+	if(gameresult == 0){
+	    int end_result = save(life);
+	    if(end_result == 0) printf("File saved successfully. GOOD BYE.\n");
+	    else printf("An error occured. Program abnormal terminated.\n");
+	}
 
 }
 
